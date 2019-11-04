@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: zyp
+ * Date: 19-6-27
+ * Time: 2:38 pm
+ */
+include ( __DIR__ . '/vendor/autoload.php' );
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Container\Container;
+
+$capsule = new Capsule;
+$db_config = config('db');
+
+$capsule->addConnection($db_config);
+
+
+
+
+
+$capsule->setAsGlobal();
+$console = new \Inhere\Console\Application([
+    'name' => 'HDCJ_SCRIPT',
+    'version' => '1.0.0',
+    'debug' => true,
+]);
+
+include ( __DIR__ . '/Config/command.php' );
+$console->run();
+
+
+
+
