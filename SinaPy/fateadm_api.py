@@ -313,10 +313,10 @@ class FateadmApi():
 
 def TestFunc(path):
     # pd账号秘钥，请在用户中心页获取
-    pd_id           = "109032"
-    pd_key          = "RmIfvpfsK21lymzVHo4pg1vpUorHAZ/5"
-    app_id			= "309032"
-    app_key 		= "k9Mi0k37lhzaOLUpE46uit5jSqcW5sz7"
+    pd_id           = "xx"
+    pd_key          = "xxxxx/5"
+    app_id			= "xx"
+    app_key 		= "xxx"
     # 具体类型可以查看官方网站的价格页选择具体的类型，不清楚类型的，可以咨询客服
     pred_type       = "30500"
     # 初始化api接口

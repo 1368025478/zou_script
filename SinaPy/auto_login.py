@@ -18,7 +18,7 @@ import sys
 
 
 txt_path = os.getcwd()
-txt_save_path = '/data/webapp/hdcj/hdcj_script/SinaPy/'+'cookie.txt'
+txt_save_path = '/data/webapp/zou/zou_script/SinaPy/'+'cookie.txt'
 filename=txt_save_path
 cookiejar = cookielib.LWPCookieJar(filename)
 cookie_support = urllib2.HTTPCookieProcessor(cookiejar)
