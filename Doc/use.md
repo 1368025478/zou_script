@@ -1,8 +1,8 @@
 ## 使用说明
 
-lottery_crantab.sh 定义所有脚本的定时任务
+crantab.sh 定义所有脚本的定时任务
 
-protect_open_script 定义所有脚本的常驻任务
+nohup.sh 定义所有脚本的常驻任务
 
 
 一：脚本文件命名规范
@@ -66,12 +66,13 @@ class SyncDataCommand extends Command
 #定义脚本启动路径
 start=/www/wwwroot/hd_choujiang/hdcj_sciprt/script
 
-#10分钟切换精品福利脚本（脚本注释）
-result=$(crontab -l | grep "jpfl_change")
+#微博登陆脚本
+result=$(crontab -l | grep "sina_login")
 if [[ "$result" == "" ]]
 then
-  crontab -l > conf && echo "*/10 * * * * php $start jpfl_change" >> conf && crontab conf && rm -f conf
+  crontab -l > conf && echo "*/10 * * * * /data/app/php/bin/php $start sina_login" >> conf && crontab conf && rm -f conf
 fi
+
 
 ```
 
@@ -79,15 +80,18 @@ fi
 
 ```php
 #!/bin/bash
-start=/www/wwwroot/hd_choujiang/hdcj_sciprt/script
-output_page=/www/wwwroot/hd_choujiang/hdcj_sciprt/output
-old_page=/www/wwwroot/hd_choujiang/hdcj_sciprt/z_old/open_lottery
 
-#自动参与抽奖脚本
-alive=`ps aux|grep lottery_auto|grep -v grep|wc -l`
+#脚本文件启动路径
+start=/data/webapp/zou/zou_script/script
+#ouput输出文件路径
+output_page=/data/webapp/zou/zou_script/output
+
+
+#推送脚本
+alive=`ps aux|grep "$start push_xcx_notice" |grep -v grep|wc -l`
 if [ $alive -eq 0 ]
 then
-nohup  php $start lottery_auto > $output_page/lottery_auto.output 2>&1 &
+nohup  /data/app/php/bin/php $start push_xcx_notice key_list=test_list push_speed = 100000 > $output_page/push_xcx_notice.output 2>&1 &
 fi
 
 ```
