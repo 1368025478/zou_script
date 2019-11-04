@@ -21,7 +21,7 @@ $capsule->addConnection($db_config);
 
 $capsule->setAsGlobal();
 $console = new \Inhere\Console\Application([
-    'name' => 'HDCJ_SCRIPT',
+    'name' => 'ZOU_SCRIPT',
     'version' => '1.0.0',
     'debug' => true,
 ]);
